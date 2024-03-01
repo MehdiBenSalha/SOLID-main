@@ -1,0 +1,43 @@
+@startuml
+
+class CarManager
+class Car
+class Database{
++ getFromDb(String carId) :Car
+-List<Car> _carsDb
++ getCars() : List<Car>
+}
+
+class BestCar{
++ getBestCar() :Car
++ BestCar(List<Car> carsDb)
+}
+
+class CarNames{
++ getCarsNames() :String
++CarNames(List<Car> carsDb)
+}
+
+
+Database *-- Car
+CarManager -- Database
+CarManager -- BestCar
+CarManager -- CarNames
+BestCar -[dashed]-> Car
+CarNames -[dashed]-> Car
+
+
+CarManager : + getFromDb(String carId) :Car
+CarManager : + getCarsNames() :String
+CarManager : + getBestCar() :Car
+
+Car : - _id : String
+Car : -_model : String
+Car : -_brand: String
+Car : +Car(String id,String model,String brand)
+Car : +getId():String 
+Car : +getModel():String 
+Car : +getBrand():String
+
+
+@enduml
