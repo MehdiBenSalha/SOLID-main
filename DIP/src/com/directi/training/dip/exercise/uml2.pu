@@ -1,0 +1,42 @@
+
+@startuml
+
+interface Reader {
+    +read() : String
+}
+
+interface Writer {
+    +write(String) : int
+}
+
+class Network implements Reader {
+    +read() : String
+}
+
+class File implements Reader, Writer {
+    +read() : String
+    +write(String) : int
+}
+
+class MyDatabase implements Writer {
+     - {static} Map<Integer, String> _data;
+    - {static} int _count;
+    +write(String) : int
+}
+
+class EncodingModule {
+    +encode(String) : String
+}
+
+EncodingModule --> Reader
+EncodingModule --> Writer
+
+class EncodingModuleClient {
+    
+}
+
+EncodingModuleClient -left[dashed]- EncodingModule
+
+
+@enduml
+```
