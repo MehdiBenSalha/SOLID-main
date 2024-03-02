@@ -1,7 +1,8 @@
-package com.directi.training.ocp.exercise;
+package com.directi.training.ocp.exercise.refactored;
 
 public abstract class slot {
-    public abstract void markSlotFree();
-    public abstract void findFreeSlot();
-    public abstract void markSlotBusy();
+    private int SlotId;
+    public abstract void markSlotFree(int resourceId);
+    public abstract int findFreeSlot();
+    public abstract void markSlotBusy(int resourceId);
     }

@@ -1,0 +1,27 @@
+
+@startuml
+class SlotAllocator {
+    
+    +allocate(slot)
+    +free(slot, int)
+}
+abstract class slot {
+    ~SlotId : int
+   + {abstract} markSlotFree(int) : void
+    +findFreeSlot() : int
+    +markSlotBusy(int) : void
+}
+class spaceslot {
+    +markSlotFree(int) : void
+    +findFreeSlot() : int
+    +markSlotBusy(int) : void
+}
+class timeslot {
+     +markSlotFree(int) : void
+    +findFreeSlot() : int
+    +markSlotBusy(int) : void
+}
+SlotAllocator -right- slot
+slot <|-- spaceslot
+slot <|-- timeslot
+@enduml

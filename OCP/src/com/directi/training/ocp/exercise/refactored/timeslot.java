@@ -1,16 +1,17 @@
-package com.directi.training.ocp.exercise;
+package com.directi.training.ocp.exercise.refactored;
 
 public class timeslot extends slot {
     @Override
-    public  void markSlotFree(){
+    public  void markSlotFree(int resourceId){
 
     }
     @Override
-    public  void findFreeSlot(){
+    public  int findFreeSlot(){
+        return 0;
 
     }
     @Override
-    public  void markSlotBusy(){
+    public  void markSlotBusy(int resourceId){
 
     }    
 }
