@@ -1,0 +1,33 @@
+
+@startuml
+
+interface DuckInterface {
+    +quack() : void
+    +swim() : void
+}
+
+class Duck implements DuckInterface {
+    +quack() : void
+    +swim() : void
+       
+}
+
+class ElectronicDuck implements DuckInterface {
+    -_on : Boolean
+    +quack() : void
+    +swim() : void
+    +turnOn() : void
+    +turnOff() : void        
+}
+
+class Pool  {
+    +run() : void
+    +main(String[]) : void
+    -quack(DuckInterface[]) : void
+    -swim(DuckInterface[]) : void
+}
+
+Pool .. DuckInterface
+
+@enduml
+```
